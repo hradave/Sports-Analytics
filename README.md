@@ -1,26 +1,33 @@
-# StatsBomb Open Data
+# Predicting Goals in Football: Estimating the Probability of Scoring from Shots by FC Barcelona Players
 
-Welcome to the StatsBomb Open Data repository.
+## Abstract 
+The world is changing with the advance of technology and the vast amount of data available, and so does sport. Team sports such as football, are starting to introduce mathematical methods to analyse performances, recognize trends and patterns and predict results. The purpose of this study is to develop a new metric called Scoring Probability using machine learning models that is capable of predicting when a shot is going to end up being a goal. Scoring Probability is inspired by the Expected Goals metric.
 
-StatsBomb are committed to sharing new data and research publicly to enhance understanding of the game of Football. We want to actively encourage new research and analysis at all levels. Therefore we have made certain leagues of StatsBomb Data freely available for public use for research projects and genuine interest in football analytics.
+To do so, many different mathematical approaches are trained on a dataset that tries to represent the exact moment of the shot in as much detail as possible. Also, the dataset includes information about the players, their skills and the moment of the game. By doing so, a Logistic Regression algorithm is the one that yields the best performance when predicting goals, with an F1 score of 35.24%, improving the previous works on the field.
 
-StatsBomb are hoping that by making data freely available, we will extend the wider football analytics community and attract new talent to the industry. We would like to collect some basic personal information about users of our data. By [giving us your email address](https://statsbomb.com/resource-centre/), it means we will let you know when we make more data, tutorials and research available. We will store the information in accordance with our Privacy Policy and the GDPR.
-
-Whilst we are keen to share data and facilitate research, we also urge you to be responsible with the data. Please register your details on https://www.statsbomb.com/resource-centre and read our [User Agreement](LICENSE.pdf) carefully.
+This study intends to provide new information and hidden insights to professionals - players, coaches or managers - in order to improve the game, looking for a better decision process when it comes to scoring a goal.
 
 
-## Terms & Conditions
+## Dataset
+The project is mainly based on a dataset from [StatsBomb](https://statsbomb.com/) which includes features such as: location of the players on the pitch in any shot - including he position and actions of the Goalkeeper-, detailed information on defensive players applying pressure on the player in possession, or which foot the player on possession uses.
 
-By using this repository, you are agreeing to the [user agreement](LICENSE.pdf).
+Player skills are also considered, ratings of the shooters -which is the preferred foot of the player- and the opponent goalkeepers from FIFA sourced from [FIFAindex](https://www.fifaindex.com/).
 
-If you publish, share or distribute any research, analysis or insights based on this data, please state the data source as StatsBomb and use our logo, available in our [Media Pack](https://statsbomb.com/media-pack/).
+# Models Trained
+* Logistic Regression
+* Random Forest
+* Ada Boost
+* K-NN
 
-## Getting Started
+# Results
+The best result was yielded by the Logistic Regression being an accuracy of 85.89%.
 
-The [data](./data/) is provided as JSON files exported from the StatsBomb Data API, in the following structure:
+# Prediction Examples
+Messi GOAL with a probability of scoring of 12%.
 
-* Competition and seasons stored in [`competitions.json`](./data/competitions.json).
-* Matches for each competition and season, stored in [`matches`](./data/matches/). Each folder within is named for a competition ID, each file is named for a season ID within that competition.
-* Events and lineups for each match, stored in [`events`](./data/events/) and [`lineups`](./data/lineups/) respectively. Each file is named for a match ID.
+![Alt text](https://github.com/oriolgarrobe/Sports-Analytics/blob/master/img/messi_goal.JPG?raw=true)
 
-Some documentation about the meaning of different events and the format of the JSON can be found in the [`doc`](./doc) directory.
+Giuly MISS with a probability of scoring of 88.6%.
+
+![Alt text](https://github.com/oriolgarrobe/Sports-Analytics/blob/master/img/giuly_miss.JPG?raw=true)
+
